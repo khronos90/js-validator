@@ -1,5 +1,5 @@
 var moment = require('moment');
-console.log(moment.now());
+
 var validator = {
   submit: null,
   numInputs: [],
@@ -19,6 +19,15 @@ var validator = {
       textInputs: [string],
     }
   */
+  validate: function(options){
+    this.init(options);
+    this.validateInputs();
+    let status = this.errorMsgs.length > 0 ? 'Error' : 'OK';
+    return {
+      status: status,
+      errorMsgs: this.errorMsgs
+    }
+  },
   init: function(options){
     if(options.form == 'undefined'){
       this.findDOMEl(options.numInputs, 'numInputs');
@@ -35,6 +44,10 @@ var validator = {
     });
   },
   validateInputs: function(){
+    this.validateDate();
+    this.validateMail();
+    this.validateNums();
+    this.validateText();
   },
   validateNums: function(){
     this.numInputs.forEach(e => {
@@ -64,7 +77,6 @@ var validator = {
         this.addError(e);
       }
     });
-    
   },
   addError: function(e){
     self.errorMsgs.push(e.dataset.error-msg);
