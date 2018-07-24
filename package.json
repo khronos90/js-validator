@@ -1,0 +1,27 @@
+{
+  "name": "jsvalidator",
+  "version": "1.0.0",
+  "description": "Validate form inputs",
+  "main": "form-validator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khronos90/js-validator.git"
+  },
+  "keywords": [
+    "validate",
+    "js",
+    "forms"
+  ],
+  "author": "khronos90",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khronos90/js-validator/issues"
+  },
+  "homepage": "https://github.com/khronos90/js-validator#readme",
+  "dependencies": {
+    "moment": "^2.22.2"
+  }
+}
